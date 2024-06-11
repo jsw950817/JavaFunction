@@ -1,0 +1,69 @@
+package springpractice.shoppingmall;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.Random;
+
+public class RestController {
+    class MyController {
+        @GetMapping("/time")
+        LocalDateTime getTime() {
+            return LocalDateTime.now();
+        }
+
+        @GetMapping("/lotto-number")
+        int getLottoNumber() {
+            Random random = new Random();
+            return random.nextInt(45) + 1;
+        }
+
+        @GetMapping("/square")
+        int getSquare(@RequestParam int n) {
+            return n * n;
+        }
+
+        @GetMapping("/convert-c-to-f")
+        double converReqParam(@RequestParam double degreesC) {
+            return degreesC * 9 / 5 + 32;
+        }
+
+        @GetMapping("/square")
+        int squarePathVar(@PathVariable int n) {
+            return n * n;
+        }
+
+        @GetMapping("/convert-c-to-f/{degreesC}")
+        double convertPathvar(@PathVariable double degreesC) {
+            return degreesC * 9 / 5 + 32;
+        }
+
+        @PostMapping("/square")
+        int square(@RequestBody SquareDto dto) {
+            return dto.getN() * dto.getN();
+        }
+
+        public class SquareDto {
+            private int n;
+
+            public int getN() {
+                return n;
+            }
+        }
+
+        @PostMapping("/convert-c-to-f")
+        double convert(@RequestBody ConvertDto dto) {
+            return dto.getDegreesC() * 9 / 5 + 32;
+        }
+
+        public class ConvertDto {
+            private double degreesC;
+
+            public double getDegreesC() {
+                return degreesC;
+            }
+        }
+
+    }
+
+}
