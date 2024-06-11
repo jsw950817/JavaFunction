@@ -1,0 +1,73 @@
+package springpractice.shoppingmall;
+
+import org.hibernate.Length;
+
+import java.util.List;
+
+public class JavaFunction {
+    int square(int n1) {
+        return n1 * n1;
+    }
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    boolean isPositive(int number) {
+        return number > 0;
+    }
+
+    boolean isNegative(int num) {
+        return num < 0;
+    }
+
+    int max(int a, int b) {
+        return Math.max(a, b);
+    }
+
+    int min(int a, int b) {
+        return Math.min(a, b);
+    }
+
+    int abs(int n) {
+        if (n < 0)
+            return -n;
+        return n;
+    }
+
+    boolean isEmpty(String str) {
+//        if( str.length() == 0) {
+//            return true;
+//        }
+//        return false;
+        return str.length() == 0;
+    }
+
+    String concat(String s1, String s2) {
+        return s1 + s2;
+    }
+
+    boolean isMale(String idnumber) {
+        return idnumber.startsWith("1") || idnumber.startsWith("3");
+
+    }
+
+    int getLength(List<String> strings) {
+        return strings.size();
+
+    }
+
+    int getSum(List<Integer> integers) {
+        int sum = 0;
+
+        for (Integer integer : integers) {
+            sum += integer;
+        }
+        return sum;
+    }
+
+    int getAverage(List<Integer> integers) {
+        return getSum(integers) / integers.size();
+    }
+
+}
